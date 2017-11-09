@@ -101,4 +101,16 @@ public class City {
         result = 31 * result + getPopulation();
         return result;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < 86; i++) { builder.append("-"); }
+        builder.append(String.format("\n|%-10s %-20s %-15s %-20s %-15s|\n", "ID", NAME_FIELD_NAME, COUNTRY_CODE_FIELD_NAME, DISTRICT_FIELD_NAME, POPULATION_FIELD_NAME));
+        for (int i = 0; i < 86; i++) { builder.append("-"); }
+        builder.append(String.format("\n|%-10s %-20s %-15s %-20s %-15s|\n", getId(), getName(), getCountryCode(), getDistrict(), getPopulation()));
+        for (int i = 0; i < 86; i++) { builder.append("-"); }
+        builder.append("\n");
+        return builder.toString();
+    }
 }

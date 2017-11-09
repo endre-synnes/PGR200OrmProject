@@ -15,4 +15,32 @@ public class DBReader {
         this.dbConnector = dbConnector;
     }
 
+
+    public void getOsloFromCity() throws Exception{
+
+        Dao<City, String> cityDao = DaoManager.createDao(
+                dbConnector.getConnection(), City.class);
+
+
+        List<City> cities = cityDao.queryForEq(City.NAME_FIELD_NAME, "Oslo");
+        printCity(cities);
+    }
+
+
+    public void getAllFromCity() throws Exception{
+        Dao<City, String> cityDao = DaoManager.createDao(
+                dbConnector.getConnection(), City.class);
+
+
+        List<City> cities = cityDao.queryForAll();
+        printCity(cities);
+    }
+
+
+    private void printCity(List<City> list){
+        for (City city : list) {
+            System.out.printf(city.toString());
+        }
+    }
+
 }
