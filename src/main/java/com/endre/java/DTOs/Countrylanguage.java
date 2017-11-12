@@ -15,6 +15,9 @@ public class Countrylanguage {
     public static final String IS_OFFICIAL_FIELD_NAME = "IsOfficial";
     public static final String PERCENTAGE_FIELD_NAME = "Percentage";
 
+    @DatabaseField(generatedId = true)
+    private int id;
+
     @DatabaseField(columnName = COUNTRY_CODE_FIELD_NAME, canBeNull = false)
     private String countryCOde;
 
@@ -35,6 +38,10 @@ public class Countrylanguage {
         this.language = language;
         this.isOfficial = isOfficial;
         Percentage = percentage;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getCountryCOde() {

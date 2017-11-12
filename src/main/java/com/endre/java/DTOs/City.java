@@ -2,7 +2,6 @@ package com.endre.java.DTOs;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import com.sun.org.apache.bcel.internal.generic.POP;
 
 @DatabaseTable(tableName = "city")
 public class City {
@@ -18,8 +17,10 @@ public class City {
     @DatabaseField(columnName = NAME_FIELD_NAME, canBeNull = false)
     private String name;
 
-    @DatabaseField(columnName = COUNTRY_CODE_FIELD_NAME, canBeNull = false)
-    private String countryCode;
+    //, foreign = true,columnDefinition = "String references Country(Code) on delete cascade"
+    @DatabaseField(columnName = COUNTRY_CODE_FIELD_NAME, canBeNull = false,
+            foreign = true)
+    private Country countryCode;
 
     @DatabaseField(columnName = DISTRICT_FIELD_NAME, canBeNull = false)
     private String district;
@@ -30,8 +31,7 @@ public class City {
     public City(){}
 
 
-    public City(int id, String name, String countryCode, String district, int population) {
-        this.id = id;
+    public City(String name, Country countryCode, String district, int population) {
         this.name = name;
         this.countryCode = countryCode;
         this.district = district;
@@ -54,11 +54,11 @@ public class City {
         this.name = name;
     }
 
-    public String getCountryCode() {
+    public Country getCountryCode() {
         return countryCode;
     }
 
-    public void setCountryCode(String countryCode) {
+    public void setCountryCode(Country countryCode) {
         this.countryCode = countryCode;
     }
 
@@ -108,7 +108,7 @@ public class City {
         for (int i = 0; i < 86; i++) { builder.append("-"); }
         builder.append(String.format("\n|%-10s %-20s %-15s %-20s %-15s|\n", "ID", NAME_FIELD_NAME, COUNTRY_CODE_FIELD_NAME, DISTRICT_FIELD_NAME, POPULATION_FIELD_NAME));
         for (int i = 0; i < 86; i++) { builder.append("-"); }
-        builder.append(String.format("\n|%-10s %-20s %-15s %-20s %-15s|\n", getId(), getName(), getCountryCode(), getDistrict(), getPopulation()));
+        builder.append(String.format("\n|%-10s %-20s %-15s %-20s %-15s|\n", getId(), getName(), getCountryCode().getCode(), getDistrict(), getPopulation()));
         for (int i = 0; i < 86; i++) { builder.append("-"); }
         builder.append("\n");
         return builder.toString();

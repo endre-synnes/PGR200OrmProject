@@ -14,8 +14,8 @@ public class DBCreator {
 
 
     public void setUpDatabase() throws Exception{
-        TableUtils.createTableIfNotExists(dbConnector.getConnection(), City.class);
         TableUtils.createTableIfNotExists(dbConnector.getConnection(), Country.class);
+        TableUtils.createTableIfNotExists(dbConnector.getConnection(), City.class);
         TableUtils.createTableIfNotExists(dbConnector.getConnection(), Countrylanguage.class);
     }
 }

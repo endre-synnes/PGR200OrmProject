@@ -9,11 +9,22 @@ public class MainApplication {
         this.dbConnector = dbConnector;
     }
 
+    public void createDB()throws Exception{
+        System.out.println("Creating tables");
+        new DBCreator(dbConnector).setUpDatabase();
+    }
+
+
     public void readFromDB()throws Exception{
-        System.out.println("Getting Oslo From City...");
-        new DBReader(dbConnector).getOsloFromCity();
-        System.out.println("Getting all From City");
-        new DBReader(dbConnector).getAllFromCity();
+//        System.out.println("Getting Oslo From City...");
+//        new DBReader(dbConnector).getOsloFromCity();
+//        System.out.println("Getting all From City");
+//        new DBReader(dbConnector).getCountryStartingWithN();
+    }
+
+    public void publishToDB()throws Exception{
+        System.out.println("Adding Norway to countries");
+        new DBPublisher(dbConnector).addCountry();
     }
 
     public static void main(String[] args) {
@@ -22,12 +33,11 @@ public class MainApplication {
 
             MainApplication mainApplication = new MainApplication(dbConnector);
 
-            //Setting up tables
-            new DBCreator(dbConnector).setUpDatabase();
+            mainApplication.createDB();
 
             mainApplication.readFromDB();
 
-
+            mainApplication.publishToDB();
 
 
         }catch (IOException ioE){
