@@ -1,5 +1,5 @@
-# PGR200OrmProject #
-PGR200 project using ORM
+# PGR200 Orm Project #
+PGR200 java project using ORM
 
 # Exersise #
 
