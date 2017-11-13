@@ -19,7 +19,7 @@ public class City {
 
     //, foreign = true,columnDefinition = "String references Country(Code) on delete cascade"
     @DatabaseField(columnName = COUNTRY_CODE_FIELD_NAME, canBeNull = false,
-            foreign = true)
+            foreign = true, foreignColumnName = Country.CODE_FIELD_NAME)
     private Country countryCode;
 
     @DatabaseField(columnName = DISTRICT_FIELD_NAME, canBeNull = false)
@@ -86,10 +86,8 @@ public class City {
         City city = (City) o;
 
         if (getId() != city.getId()) return false;
-        if (getPopulation() != city.getPopulation()) return false;
-        if (!getName().equals(city.getName())) return false;
-        if (!getCountryCode().equals(city.getCountryCode())) return false;
-        return getDistrict().equals(city.getDistrict());
+        return !getName().equals(city.getName());
+
     }
 
     @Override

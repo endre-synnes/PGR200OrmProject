@@ -5,6 +5,7 @@ import com.j256.ormlite.support.ConnectionSource;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public class DBConnector {
@@ -30,7 +31,7 @@ public class DBConnector {
     }
 
 
-    public ConnectionSource getConnection() throws Exception{
+    public ConnectionSource getConnection() throws SQLException{
         String urlString = "jdbc:mysql://" + hostName +":" + port + "/" + dbName;
         return new JdbcConnectionSource(urlString, userName, password);
     }

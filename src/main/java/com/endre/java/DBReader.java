@@ -26,7 +26,7 @@ public class DBReader {
     }
 
 
-    public void getCountryStartingWithN() throws Exception{
+    public void getCountryNorway() throws Exception{
         Dao<Country, String> countriesDao = DaoManager.createDao(
                 dbConnector.getConnection(), Country.class);
         Country country = new Country();

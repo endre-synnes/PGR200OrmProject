@@ -1,5 +1,6 @@
 package com.endre.java;
 
+import com.endre.java.DTOs.City;
 import com.endre.java.DTOs.Country;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -12,7 +13,7 @@ public class DBPublisher {
         this.dbConnector = dbConnector;
     }
 
-    public void addCountry() throws Exception{
+    public void addCountryAndTwoCities() throws Exception{
 
         try {
             Dao<Country, String> countriesDao = DaoManager.createDao(
@@ -36,6 +37,22 @@ public class DBPublisher {
             norway.setSurfaceArea(56789098);
 
             countriesDao.createIfNotExists(norway);
+
+
+            //Create City
+            Dao<City, String> citiesDao = DaoManager.createDao(
+                    dbConnector.getConnection(), City.class);
+
+            City oslo = new City();
+            oslo.setName("Oslo");
+            oslo.setCountryCode(norway);
+            oslo.setPopulation(500000);
+            oslo.setDistrict("Oslo");
+
+            citiesDao.createIfNotExists(oslo);
+
+            City bergen = new City("Bergen", norway, "Hordaland", 300000);
+            citiesDao.createIfNotExists(bergen);
 
         }catch (Exception e){
             throw new Exception("Could not add to database");

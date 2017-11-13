@@ -236,16 +236,16 @@ public class Country {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < 86; i++) { builder.append("-"); }
-        builder.append(String.format("\n|%-10s %-20s %-25s %-20s %-10s %-10s %-10s %-15s %-10s %-10s %-10s %-20s %-15s %-10s %-10s|\n",
+        for (int i = 0; i < 216; i++) { builder.append("-"); }
+        builder.append(String.format("\n|%-10s %-20s %-25s %-10s %-15s %-10s %-10s %-15s %-10s %-10s %-10s %-20s %-15s %-10s %-10s|\n",
                 CODE_FIELD_NAME, NAME_FIELD_NAME, CONTINENT_FIELD_NAME, REGION_FIELD_NAME, SURFACE_AREA_FIELD_NAME, INDEP_YEAR_FIELD_NAME,
                 POPULATION_FIELD_NAME, LIFE_EXPECTANCY_FIELD_NAME, GNP_FIELD_NAME, GNP_OLD_FIELD_NAME, LOCAL_NAME_FIELD_NAME,
                 GOVERNMENT_FORM_FIELD_NAME, HEAD_OF_STATE_FIELD_NAME, CAPITAL_FIELD_NAME, CODE_2_FIELD_NAME));
-        for (int i = 0; i < 86; i++) { builder.append("-"); }
-        builder.append(String.format("\n|%-10s %-20s %-25s %-20s %-10s %-10s %-10s %-15s %-10s %-10s %-10s %-20s %-15s %-10s %-10s|\n",
+        for (int i = 0; i < 216; i++) { builder.append("-"); }
+        builder.append(String.format("\n|%-10s %-20s %-25s %-10s %-15s %-10s %-10s %-15s %-10s %-10s %-10s %-20s %-15s %-10s %-10s|\n",
                 getCode(), getName(), getContinents(), getRegion(), getSurfaceArea(), getIndepYear(), getPopulation(), getLifeExpectancy(),
                 getGnp(), getGnpOld(), getLocalName(), getGovernmentForm(), getHeadOfState(), getCapital(), getCode2()));
-        for (int i = 0; i < 86; i++) { builder.append("-"); }
+        for (int i = 0; i < 216; i++) { builder.append("-"); }
         builder.append("\n");
         return builder.toString();
     }
