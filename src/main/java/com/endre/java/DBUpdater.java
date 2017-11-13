@@ -7,11 +7,11 @@ import com.j256.ormlite.stmt.UpdateBuilder;
 
 import java.sql.SQLException;
 
-public class DBUpdator {
+public class DBUpdater {
 
     private ConnectorInterface dbConnector;
 
-    public DBUpdator(ConnectorInterface dbConnector) {
+    public DBUpdater(ConnectorInterface dbConnector) {
         this.dbConnector = dbConnector;
     }
 

@@ -3,7 +3,6 @@ package com.endre.java;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class H2ConnectionSource implements ConnectorInterface {

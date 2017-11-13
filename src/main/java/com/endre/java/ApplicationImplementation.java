@@ -8,7 +8,6 @@ import java.sql.SQLException;
 
 
 public class ApplicationImplementation {
-//    private DBConnector dbConnector;
 
     private ConnectorInterface dbConnector;
 
@@ -98,7 +97,7 @@ public class ApplicationImplementation {
 
     public void updateValueInDB()throws SQLException{
         System.out.println("\nUpdating Norway indep-year to 1814...");
-        new DBUpdator(dbConnector).updateCountryIndepYear("Norway", 1814);
+        new DBUpdater(dbConnector).updateCountryIndepYear("Norway", 1814);
         new DBReader(dbConnector).getCountryByName("Norway");
     }
 
