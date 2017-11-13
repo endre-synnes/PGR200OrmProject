@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Countrylanguage")
-public class Countrylanguage {
+public class CountryLanguage {
 
     public enum IsOfficial{
         T, F
@@ -28,16 +28,16 @@ public class Countrylanguage {
     private IsOfficial isOfficial;
 
     @DatabaseField(columnName = PERCENTAGE_FIELD_NAME, canBeNull = false)
-    private float Percentage;
+    private float percentage;
 
-    public Countrylanguage() {
+    public CountryLanguage() {
     }
 
-    public Countrylanguage(String countryCOde, String language, IsOfficial isOfficial, float percentage) {
-        this.countryCOde = countryCOde;
+    public CountryLanguage(String countryCode, String language, IsOfficial isOfficial, float percentage) {
+        this.countryCOde = countryCode;
         this.language = language;
         this.isOfficial = isOfficial;
-        Percentage = percentage;
+        this.percentage = percentage;
     }
 
     public int getId() {
@@ -69,11 +69,11 @@ public class Countrylanguage {
     }
 
     public float getPercentage() {
-        return Percentage;
+        return percentage;
     }
 
     public void setPercentage(float percentage) {
-        Percentage = percentage;
+        this.percentage = percentage;
     }
 
     @Override
@@ -81,7 +81,7 @@ public class Countrylanguage {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Countrylanguage that = (Countrylanguage) o;
+        CountryLanguage that = (CountryLanguage) o;
 
         if (getCountryCOde() != null ? !getCountryCOde().equals(that.getCountryCOde()) : that.getCountryCOde() != null)
             return false;
@@ -93,5 +93,17 @@ public class Countrylanguage {
         int result = getCountryCOde() != null ? getCountryCOde().hashCode() : 0;
         result = 31 * result + (getLanguage() != null ? getLanguage().hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < 86; i++) { builder.append("-"); }
+        builder.append(String.format("\n|%-10s %-20s %-15s %-20s %-15s|\n", "ID", COUNTRY_CODE_FIELD_NAME, LANGUAGE_FIELD_NAME, IS_OFFICIAL_FIELD_NAME, PERCENTAGE_FIELD_NAME));
+        for (int i = 0; i < 86; i++) { builder.append("-"); }
+        builder.append(String.format("\n|%-10s %-20s %-15s %-20s %-15s|\n", getId(), getCountryCOde(), getLanguage(), getIsOfficial(), getPercentage()));
+        for (int i = 0; i < 86; i++) { builder.append("-"); }
+        builder.append("\n");
+        return builder.toString();
     }
 }

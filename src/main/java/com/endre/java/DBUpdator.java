@@ -9,9 +9,9 @@ import java.sql.SQLException;
 
 public class DBUpdator {
 
-    private DBConnector dbConnector;
+    private ConnectorInterface dbConnector;
 
-    public DBUpdator(DBConnector dbConnector) {
+    public DBUpdator(ConnectorInterface dbConnector) {
         this.dbConnector = dbConnector;
     }
 
